@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gerenciador de Tarefas</string>
+
+    <string name="hello_world">Olá Mundo!</string>
+    <string name="action_settings">Configurações</string>
+    <string name="lbl_login">Usuário</string>
+    <string name="lbl_password">Senha</string>
+    <string name="lbl_enter">ENTRAR</string>
+    <string name="msg_welcome">Seja bem vindo %s!</string>
+    <string name="lbl_weight">Peso</string>
+    <string name="lbl_height">Altura</string>
+    <string name="msg_calculate">Calcular</string>
+    <string name="msg_imc">IMC: %s</string>
+    <string name="lbl_name">Nome</string>
+    <string name="lbl_description">Descrição</string>
+    <string name="msg_include">Incluir</string>
+    <string name="lbl_add">Adicionar</string>
+    <string name="msg_required">Campo obrigatório!</string>
+    <string name="msg_save_success">Salvo com sucesso!</string>
+</resources>
