@@ -1,9 +1,23 @@
 package br.com.cast.turmaformacao.taskmanager.model.entities;
 
-public class Task {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Task implements Parcelable {
     private Long id;
     private String name;
     private String description;
+
+    public Task() {
+        super();
+    }
+
+    public Task(Parcel imp) {
+        super();
+        readFromParcel(imp);
+    }
 
     @Override
     public String toString() {
@@ -58,4 +72,37 @@ public class Task {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id == null ? -1 : id);
+        dest.writeString(name == null ? "" : name);
+        dest.writeString(description == null ? "" : description);
+    }
+
+    public void readFromParcel(Parcel imp) {
+        id = imp.readLong();
+        id = id == -1 ? null : id;
+
+        name = imp.readString();
+        description = imp.readString();
+    }
+
+    public static final Parcelable.Creator<Task> CREATOR =  new Parcelable.Creator<Task>(){
+
+        @Override
+        public Task createFromParcel(Parcel source) {
+            return new Task(source);
+        }
+
+        @Override
+        public Task[] newArray(int size) {
+            return new Task[size];
+        }
+    };
 }

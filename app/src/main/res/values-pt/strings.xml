@@ -18,4 +18,11 @@
     <string name="lbl_add">Adicionar</string>
     <string name="msg_required">Campo obrigatório!</string>
     <string name="msg_save_success">Salvo com sucesso!</string>
+    <string name="lbl_edit">Editar</string>
+    <string name="lbl_delete">Deletar</string>
+    <string name="msg_delete_successfull">Deletado com sucesso!</string>
+    <string name="lbl_confirm">Confirmar</string>
+    <string name="msg_confirm_delete">Deseja excluir esse registro?</string>
+    <string name="lbl_yes">Sim</string>
+    <string name="lbl_no">Não</string>
 </resources>

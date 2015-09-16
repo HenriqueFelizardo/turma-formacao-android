@@ -17,4 +17,11 @@
     <string name="lbl_add">Add</string>
     <string name="msg_required">Field required!</string>
     <string name="msg_save_success">Save successfull!</string>
+    <string name="lbl_edit">Edit</string>
+    <string name="lbl_delete">Delete</string>
+    <string name="msg_delete_successfull">Delete successfull!</string>
+    <string name="lbl_confirm">Confirm</string>
+    <string name="msg_confirm_delete">Want to delete this record?</string>
+    <string name="lbl_yes">Yes</string>
+    <string name="lbl_no">No</string>
 </resources>
