@@ -24,4 +24,5 @@
     <string name="msg_confirm_delete">Want to delete this record?</string>
     <string name="lbl_yes">Yes</string>
     <string name="lbl_no">No</string>
+    <string name="lbl_save">Save</string>
 </resources>

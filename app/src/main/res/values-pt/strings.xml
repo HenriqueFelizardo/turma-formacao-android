@@ -25,4 +25,5 @@
     <string name="msg_confirm_delete">Deseja excluir esse registro?</string>
     <string name="lbl_yes">Sim</string>
     <string name="lbl_no">Não</string>
+    <string name="lbl_save">Salvar</string>
 </resources>

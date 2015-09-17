@@ -1,33 +1,31 @@
 package br.com.cast.turmaformacao.taskmanager.model.persistence;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import br.com.cast.turmaformacao.taskmanager.model.entities.Task;
+import br.com.cast.turmaformacao.taskmanager.model.entities.Label;
 
-public final class TaskRepository {
+public final class LabelRepository {
 
-    private TaskRepository() {
+    private LabelRepository() {
         super();
     }
 
-    public static void save(Task task) {
+    public static void save(Label label) {
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance();
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
 
-        ContentValues values = TaskContract.getContentValues(task);
+        ContentValues values = LabelContract.getContentValues(label);
 
-        if (task.getId() == null) {
-            db.insert(TaskContract.TABLE, null, values);
+        if (label.getId() == null) {
+            db.insert(LabelContract.TABLE, null, values);
         } else {
-            String where = TaskContract.ID + " = ? ";
-            String[] params = {task.getId().toString()};
-            db.update(TaskContract.TABLE, values, where, params);
+            String where = LabelContract.ID + " = ? ";
+            String[] params = {label.getId().toString()};
+            db.update(LabelContract.TABLE, values, where, params);
         }
         db.close();
         databaseHelper.close();
@@ -37,25 +35,25 @@ public final class TaskRepository {
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance();
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
 
-        String where = TaskContract.ID + " = ? ";
+        String where = LabelContract.ID + " = ? ";
         String[] params = {String.valueOf(id)};
-        db.delete(TaskContract.TABLE, where, params);
+        db.delete(LabelContract.TABLE, where, params);
 
         db.close();
         databaseHelper.close();
     }
 
-    public static List<Task> getAll() {
+    public static List<Label> getAll() {
 
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance();
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
 
-        Cursor cursor = db.query(TaskContract.TABLE, TaskContract.COLUNS, null, null, null, null, TaskContract.ID);
-        List<Task> values = TaskContract.getTasks(cursor);
+        Cursor cursor = db.query(LabelContract.TABLE, LabelContract.COLUNS, null, null, null, null, LabelContract.ID);
+        List<Label> values = LabelContract.getLabels(cursor);
 
         while (cursor.moveToNext()) {
-            Task task = new Task();
-            values.add(task);
+            Label label = new Label();
+            values.add(label);
         }
 
         db.close();

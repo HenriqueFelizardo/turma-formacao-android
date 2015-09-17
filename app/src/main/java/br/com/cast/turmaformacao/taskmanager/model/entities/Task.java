@@ -4,11 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Task implements Parcelable {
+
     private Long id;
     private String name;
     private String description;
+    private List<Label> labels;
 
     public Task() {
         super();
@@ -93,7 +96,7 @@ public class Task implements Parcelable {
         description = imp.readString();
     }
 
-    public static final Parcelable.Creator<Task> CREATOR =  new Parcelable.Creator<Task>(){
+    public static final Parcelable.Creator<Task> CREATOR = new Parcelable.Creator<Task>() {
 
         @Override
         public Task createFromParcel(Parcel source) {

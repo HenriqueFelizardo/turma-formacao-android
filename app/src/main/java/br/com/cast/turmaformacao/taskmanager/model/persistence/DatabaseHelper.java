@@ -15,13 +15,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public static DatabaseHelper getInstance(){
+    public static DatabaseHelper getInstance() {
         return new DatabaseHelper(ApplicationUtil.getContext());
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TaskContract.getCreateTableScript());
+        db.execSQL(LabelContract.getCreateTableScript());
     }
 
     @Override
