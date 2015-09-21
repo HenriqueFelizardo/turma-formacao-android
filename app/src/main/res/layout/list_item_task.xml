@@ -4,19 +4,18 @@
               android:layout_height="72dp"
               android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textViewId"
+    <View
+        android:id="@+id/viewTaskColor"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
         android:layout_weight="2"
-        android:gravity="center"
-        android:text="15"/>
+        android:layout_gravity="center"
+        android:layout_height="match_parent"/>
 
     <TextView
         android:id="@+id/textViewName"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="8"
-        android:gravity="start|center"
-        android:text="Implementar Adapter"/>
+        android:gravity="center"/>
+
 </LinearLayout>
