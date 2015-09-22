@@ -25,4 +25,8 @@
     <string name="lbl_yes">Yes</string>
     <string name="lbl_no">No</string>
     <string name="lbl_save">Save</string>
+    <string name="lbl_new">New</string>
+    <string name="lbl_register">Register</string>
+    <string name="lbl_user">User</string>
+    <string name="msg_failure">Failure</string>
 </resources>

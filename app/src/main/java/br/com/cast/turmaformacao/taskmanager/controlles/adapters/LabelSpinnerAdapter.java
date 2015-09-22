@@ -6,35 +6,30 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 import br.com.cast.turmaformacao.taskmanager.R;
 import br.com.cast.turmaformacao.taskmanager.model.entities.Label;
 
-public class LabelListAdapter extends BaseAdapter {
-    private List<Label> labelList;
+
+public class LabelSpinnerAdapter extends BaseAdapter {
+
     private Activity context;
+    private List<Label> labels;
 
-    public LabelListAdapter(Activity context, List<Label> labelList) {
+    public LabelSpinnerAdapter(Activity context, List<Label> labels) {
         this.context = context;
-        this.labelList = labelList;
-    }
-
-    public void setDataValues(List<Label> values) {
-        labelList.clear();
-        labelList.addAll(values);
+        this.labels = labels;
     }
 
     @Override
     public int getCount() {
-        return labelList.size();
+        return labels.size();
     }
 
     @Override
     public Label getItem(int position) {
-        return labelList.get(position);
+        return labels.get(position);
     }
 
     @Override
@@ -45,17 +40,13 @@ public class LabelListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Label label = getItem(position);
-        View labelListItemView = context.getLayoutInflater().inflate(R.layout.list_item_label, parent, false);
+        View labelListItemView = context.getLayoutInflater().inflate(R.layout.list_item_spinner_label, parent, false);
 
-        TextView textViewId = (TextView) labelListItemView.findViewById(R.id.textViewId);
-        textViewId.setText(label.getId().toString());
-
-        TextView textViewName = (TextView) labelListItemView.findViewById(R.id.textViewName);
+        TextView textViewName = (TextView) labelListItemView.findViewById(R.id.viewTextName);
         textViewName.setText(label.getName());
 
-        View viewTagColor = labelListItemView.findViewById(R.id.viewTagColor);
         int hexColor = android.graphics.Color.parseColor(label.getColor().getHex());
-        viewTagColor.findViewById(R.id.viewTagColor).setBackgroundColor(hexColor);
+        labelListItemView.findViewById(R.id.viewLabelItem).setBackgroundColor(hexColor);
 
         return labelListItemView;
     }

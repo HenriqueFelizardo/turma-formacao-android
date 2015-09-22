@@ -11,6 +11,7 @@ import java.util.List;
 
 import br.com.cast.turmaformacao.taskmanager.R;
 import br.com.cast.turmaformacao.taskmanager.model.entities.Task;
+import br.com.cast.turmaformacao.taskmanager.model.persistence.TaskContract;
 
 public class TaskListAdapter extends BaseAdapter{
 
@@ -47,8 +48,9 @@ public class TaskListAdapter extends BaseAdapter{
         Task task = getItem(position);
         View taskListItemView = context.getLayoutInflater().inflate(R.layout.list_item_task, parent, false);
 
-        TextView textViewId = (TextView) taskListItemView.findViewById(R.id.textViewId);
-        textViewId.setText(task.getId().toString());
+        //int hexColor = android.graphics.Color.parseColor(task.getLabel().getColor().getHex());
+        //taskListItemView.findViewById(R.id.viewTaskColor).setBackgroundColor(hexColor);
+
 
         TextView textViewName = (TextView) taskListItemView.findViewById(R.id.textViewName);
         textViewName.setText(task.getName());

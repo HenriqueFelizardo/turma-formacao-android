@@ -3,6 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical">
+
     <EditText
         android:id="@+id/editTextNome"
         android:layout_width="match_parent"
@@ -15,10 +16,27 @@
         android:layout_height="wrap_content"
         android:hint="@string/lbl_description"/>
 
-    <Button
-        android:id="@+id/buttonInclude"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/msg_include"/>
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinnerLabel"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_gravity="start"
+            android:layout_height="wrap_content">
+        </Spinner>
+
+        <Button
+            android:id="@+id/buttonNewLabel"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_gravity="start"
+            android:text="@string/lbl_add"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 
 </LinearLayout>

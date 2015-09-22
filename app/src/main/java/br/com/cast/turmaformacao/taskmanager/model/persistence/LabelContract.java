@@ -12,10 +12,10 @@ import br.com.cast.turmaformacao.taskmanager.model.entities.Label;
 public final class LabelContract {
 
     public static final String TABLE = "label";
+    public static final String ID = "id";
     public static final String NAME = "name";
     public static final String DESCRIPTION = "description";
     public static final String COLOR = "color";
-    public static final String ID = "id";
     public static final String[] COLUNS = {ID, NAME, DESCRIPTION, COLOR};
 
     private LabelContract() {
@@ -41,8 +41,8 @@ public final class LabelContract {
 
         values.put(LabelContract.ID, label.getId());
         values.put(LabelContract.NAME, label.getName());
-        values.put(LabelContract.COLOR, label.getColor().getHex());
         values.put(LabelContract.DESCRIPTION, label.getDescription());
+        values.put(LabelContract.COLOR, label.getColor().getHex());
 
         return values;
     }

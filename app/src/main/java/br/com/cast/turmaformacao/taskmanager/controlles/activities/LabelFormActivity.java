@@ -6,13 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.List;
 
 import br.com.cast.turmaformacao.taskmanager.R;
+import br.com.cast.turmaformacao.taskmanager.controlles.adapters.ColorListAdapter;
+import br.com.cast.turmaformacao.taskmanager.controlles.adapters.LabelListAdapter;
 import br.com.cast.turmaformacao.taskmanager.model.entities.Color;
 import br.com.cast.turmaformacao.taskmanager.model.entities.Label;
 import br.com.cast.turmaformacao.taskmanager.model.entities.Task;
@@ -27,6 +32,8 @@ public class LabelFormActivity extends AppCompatActivity {
     private EditText editTextName;
     private EditText editTextDescription;
     private Spinner spinnerColor;
+    private Color colorSelect;
+    private ListView list;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +44,37 @@ public class LabelFormActivity extends AppCompatActivity {
         bindEditTextName();
         bindEditTextDescription();
         bindSpinnerColor();
+        bindList();
+        bindListColorView();
+    }
 
+    public void bindList() {
+        list = (ListView) findViewById(R.id.listViewId);
+        registerForContextMenu(list);
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                LabelListAdapter adapter = (LabelListAdapter) list.getAdapter();
+                label = adapter.getItem(position);
+                return false;
+            }
+        });
+    }
+
+    private void bindListColorView() {
+        list = (ListView) findViewById(R.id.listViewId);
+    }
+
+    protected void onResume() {
+        updateLabelList();
+        super.onResume();
+    }
+
+    private void updateLabelList() {
+        List<Label> values = LabelBusinessService.findAll();
+        list.setAdapter(new LabelListAdapter(this, values));
+        LabelListAdapter adapter = (LabelListAdapter) list.getAdapter();
+        adapter.notifyDataSetChanged();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,7 +94,11 @@ public class LabelFormActivity extends AppCompatActivity {
 
     private void bindSpinnerColor() {
         spinnerColor = (Spinner) findViewById(R.id.spinnerColor);
+        Color[] list = Color.values();
 
+        ColorListAdapter colorAdapter = new ColorListAdapter(LabelFormActivity.this, list);
+
+        spinnerColor.setAdapter(colorAdapter);
     }
 
     private void bindEditTextDescription() {
@@ -83,7 +124,8 @@ public class LabelFormActivity extends AppCompatActivity {
     private void binLabel() {
         label.setName(editTextName.getText().toString());
         label.setDescription(editTextDescription.getText().toString());
-        label.setColor(Color.BLUE);
+        colorSelect = (Color) spinnerColor.getSelectedItem();
+        label.setColor(colorSelect);
     }
 
     private void initLabel() {

@@ -35,4 +35,8 @@
         android:hint="@string/lbl_description"
         />
 
+    <ListView
+        android:id="@+id/listViewId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
 </LinearLayout>
