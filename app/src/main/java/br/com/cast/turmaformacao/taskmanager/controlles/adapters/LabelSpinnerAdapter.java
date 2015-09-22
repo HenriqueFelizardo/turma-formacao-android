@@ -1,6 +1,7 @@
 package br.com.cast.turmaformacao.taskmanager.controlles.adapters;
 
 import android.app.Activity;
+import android.graphics.PorterDuff;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -46,7 +47,7 @@ public class LabelSpinnerAdapter extends BaseAdapter {
         textViewName.setText(label.getName());
 
         int hexColor = android.graphics.Color.parseColor(label.getColor().getHex());
-        labelListItemView.findViewById(R.id.viewLabelItem).setBackgroundColor(hexColor);
+        labelListItemView.findViewById(R.id.viewLabelItem).getBackground().setColorFilter(hexColor, PorterDuff.Mode.SRC);
 
         return labelListItemView;
     }
