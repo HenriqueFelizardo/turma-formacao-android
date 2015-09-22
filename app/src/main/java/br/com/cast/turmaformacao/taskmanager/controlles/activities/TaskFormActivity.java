@@ -52,7 +52,6 @@ public class TaskFormActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(TaskFormActivity.this, LabelFormActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

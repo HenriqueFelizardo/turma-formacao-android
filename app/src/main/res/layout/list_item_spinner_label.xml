@@ -7,14 +7,14 @@
     <TextView
         android:id="@+id/viewTextName"
         android:layout_width="0dp"
-        android:layout_weight="3"
+        android:layout_weight="5"
         android:layout_gravity="start|center"
         android:layout_height="62dp"/>
 
     <View
         android:id="@+id/viewLabelItem"
         android:layout_width="0dp"
-        android:layout_weight="7"
+        android:layout_weight="5"
         android:layout_height="62dp"/>
 
 </LinearLayout>

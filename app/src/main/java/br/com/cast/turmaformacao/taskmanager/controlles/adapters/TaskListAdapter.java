@@ -2,6 +2,7 @@ package br.com.cast.turmaformacao.taskmanager.controlles.adapters;
 
 
 import android.app.Activity;
+import android.graphics.PorterDuff;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -13,17 +14,17 @@ import br.com.cast.turmaformacao.taskmanager.R;
 import br.com.cast.turmaformacao.taskmanager.model.entities.Task;
 import br.com.cast.turmaformacao.taskmanager.model.persistence.TaskContract;
 
-public class TaskListAdapter extends BaseAdapter{
+public class TaskListAdapter extends BaseAdapter {
 
     private List<Task> taskList;
     private Activity context;
 
-    public TaskListAdapter(Activity context, List<Task> taskList){
+    public TaskListAdapter(Activity context, List<Task> taskList) {
         this.context = context;
         this.taskList = taskList;
     }
 
-    public void setDataValues(List<Task> values){
+    public void setDataValues(List<Task> values) {
         taskList.clear();
         taskList.addAll(values);
     }
@@ -48,8 +49,9 @@ public class TaskListAdapter extends BaseAdapter{
         Task task = getItem(position);
         View taskListItemView = context.getLayoutInflater().inflate(R.layout.list_item_task, parent, false);
 
-        //int hexColor = android.graphics.Color.parseColor(task.getLabel().getColor().getHex());
-        //taskListItemView.findViewById(R.id.viewTaskColor).setBackgroundColor(hexColor);
+        int hexColor = android.graphics.Color.parseColor(task.getLabel().getColor().getHex());
+
+        taskListItemView.findViewById(R.id.viewTaskColor).getBackground().setColorFilter(hexColor, PorterDuff.Mode.SRC);
 
 
         TextView textViewName = (TextView) taskListItemView.findViewById(R.id.textViewName);

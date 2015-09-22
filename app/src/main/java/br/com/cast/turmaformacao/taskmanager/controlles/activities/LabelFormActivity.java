@@ -117,7 +117,8 @@ public class LabelFormActivity extends AppCompatActivity {
             binLabel();
             LabelBusinessService.save(label);
             Toast.makeText(LabelFormActivity.this, R.string.msg_save_success, Toast.LENGTH_LONG).show();
-            LabelFormActivity.this.finish();
+            updateLabelList();
+            finish();
         }
     }
 

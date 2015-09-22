@@ -3,6 +3,7 @@ package br.com.cast.turmaformacao.taskmanager.model.persistence;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.List;
 
@@ -59,5 +60,21 @@ public final class LabelRepository {
         db.close();
         databaseHelper.close();
         return values;
+    }
+
+    public static Label getId(Long id) {
+        DatabaseHelper databaseHelper = DatabaseHelper.getInstance();
+        SQLiteDatabase db = databaseHelper.getReadableDatabase();
+
+        String where = LabelContract.ID + " = ? ";
+        String[] params = {String.valueOf(id)};
+
+        Cursor cursor = db.query(LabelContract.TABLE, LabelContract.COLUNS, where, params, null, null, LabelContract.ID);
+
+        Label label = LabelContract.getLabel(cursor);
+        db.close();
+        databaseHelper.close();
+
+        return label;
     }
 }
