@@ -33,4 +33,10 @@
     <string name="lbl_create_task">New Task</string>
     <string name="lbl_new_user">New User</string>
     <string name="lbl_create_label">New Label</string>
+    <string name="lbl_zip_code">Zip code</string>
+    <string name="lbl_type">Type</string>
+    <string name="lbl_street">Street</string>
+    <string name="lbl_neighborhood">Neighborhood</string>
+    <string name="lbl_city">City</string>
+    <string name="lbl_state">State</string>
 </resources>

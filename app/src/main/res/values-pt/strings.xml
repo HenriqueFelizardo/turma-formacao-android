@@ -34,4 +34,10 @@
     <string name="lbl_create_label">Nova Label</string>
     <string name="lbl_new_user">Novo Usuário</string>
     <string name="lbl_create_task">Nova Task</string>
+    <string name="lbl_zip_code">CEP</string>
+    <string name="lbl_type">Tipo de Logradouro</string>
+    <string name="lbl_street">Rua</string>
+    <string name="lbl_neighborhood">Bairro</string>
+    <string name="lbl_city">Cidade</string>
+    <string name="lbl_state">Estado</string>
 </resources>
