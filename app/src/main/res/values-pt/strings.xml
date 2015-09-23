@@ -30,4 +30,8 @@
     <string name="lbl_register">Registrar</string>
     <string name="lbl_user">Usuário</string>
     <string name="msg_failure">Falha</string>
+    <string name="lbl_task_list">Lista de Tarefas</string>
+    <string name="lbl_create_label">Nova Label</string>
+    <string name="lbl_new_user">Novo Usuário</string>
+    <string name="lbl_create_task">Nova Task</string>
 </resources>

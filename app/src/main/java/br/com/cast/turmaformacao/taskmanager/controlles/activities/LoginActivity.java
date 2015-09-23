@@ -31,17 +31,16 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public boolean loginCheck() {
-       User usuario = new User();
+        User usuario = new User();
 
         usuario.setUsuario(editTextLogin.getText().toString());
         usuario.setSenha(editTextPassword.getText().toString());
 
         user = UserRepository.login(usuario);
 
-        if(user != null){
+        if (user != null) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
@@ -54,8 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent redirectToTaskList = new Intent(LoginActivity.this, TaskListActivity.class);
                     startActivity(redirectToTaskList);
                     finish();
-                }
-                else{
+                } else {
                     Toast.makeText(LoginActivity.this, R.string.msg_failure, Toast.LENGTH_LONG).show();
                 }
             }
@@ -70,7 +68,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent redirectToNewUser = new Intent(LoginActivity.this, NewUserActivity.class);
                 startActivity(redirectToNewUser);
-                finish();
             }
         });
     }

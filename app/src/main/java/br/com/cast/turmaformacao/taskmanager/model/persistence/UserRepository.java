@@ -43,7 +43,7 @@ public final class UserRepository {
         databaseHelper.close();
     }
 
-    public static User login(User user){
+    public static User login(User user) {
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance();
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
 

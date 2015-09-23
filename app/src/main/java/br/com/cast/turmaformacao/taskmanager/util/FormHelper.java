@@ -15,7 +15,7 @@ public final class FormHelper {
 
         for (EditText editText : editTexts) {
             String textValue = editText.getText().toString();
-            if (textValue.trim().isEmpty()){
+            if (textValue.trim().isEmpty()) {
                 editText.setError(requiredMessage);
                 hasRequired = true;
             }

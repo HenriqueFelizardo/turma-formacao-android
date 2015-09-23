@@ -29,4 +29,8 @@
     <string name="lbl_register">Register</string>
     <string name="lbl_user">User</string>
     <string name="msg_failure">Failure</string>
+    <string name="lbl_task_list">Task List</string>
+    <string name="lbl_create_task">New Task</string>
+    <string name="lbl_new_user">New User</string>
+    <string name="lbl_create_label">New Label</string>
 </resources>

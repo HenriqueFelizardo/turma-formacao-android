@@ -11,15 +11,15 @@ public final class UserBusinessService {
         super();
     }
 
-    public static List<User> findAll(){
+    public static List<User> findAll() {
         return UserRepository.getAll();
     }
 
-    public static void save(User user){
+    public static void save(User user) {
         UserRepository.save(user);
     }
 
-    public static void delete(User selectedUser){
+    public static void delete(User selectedUser) {
         UserRepository.delete(selectedUser.getId());
     }
 }
