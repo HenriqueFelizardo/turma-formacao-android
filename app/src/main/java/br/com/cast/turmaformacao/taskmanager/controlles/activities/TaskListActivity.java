@@ -3,6 +3,7 @@ package br.com.cast.turmaformacao.taskmanager.controlles.activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
@@ -18,16 +19,53 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import br.com.cast.turmaformacao.taskmanager.R;
 import br.com.cast.turmaformacao.taskmanager.controlles.adapters.TaskListAdapter;
 import br.com.cast.turmaformacao.taskmanager.model.entities.Task;
+import br.com.cast.turmaformacao.taskmanager.model.http.TaskService;
+import br.com.cast.turmaformacao.taskmanager.model.persistence.TaskContract;
 import br.com.cast.turmaformacao.taskmanager.model.services.TaskBusinessService;
 
 public class TaskListActivity extends AppCompatActivity {
 
     private ListView listViewTaskList;
     private Task selectedTask;
+
+    private class GetTask extends AsyncTask<String, Void, List<Task>> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected List<Task> doInBackground(String... params) {
+            return TaskService.getTasks();
+        }
+
+        @Override
+        protected void onPostExecute(List<Task> tasks) {
+            super.onPostExecute(tasks);
+            for (Task t : tasks) {
+                if (checkTask(t)) {
+                    TaskBusinessService.save(t);
+                }
+            }
+        }
+
+        private boolean checkTask(Task t) {
+            List<Task> tasks = TaskBusinessService.findAll();
+            for (Task t2 : tasks) {
+                if (t.get_id().equals(t2.get_id())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+    }
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,8 +154,29 @@ public class TaskListActivity extends AppCompatActivity {
             case R.id.menu_add:
                 onMenuAddClick();
                 break;
+            case R.id.menu_update:
+                try {
+                    onMenuUpdateClick();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onMenuUpdateClick() throws ExecutionException, InterruptedException {
+        AsyncTask<String, Void, List<Task>> execute = new GetTask().execute();
+
+        int lengthExecute = execute.get().size();
+
+
+        for (int i = 0; i < lengthExecute; i++)
+            TaskBusinessService.synchronize(execute.get().get(i));
+
+        updateTaskList();
     }
 
     private void onMenuAddClick() {

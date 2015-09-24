@@ -39,4 +39,6 @@
     <string name="lbl_neighborhood">Neighborhood</string>
     <string name="lbl_city">City</string>
     <string name="lbl_state">State</string>
+    <string name="txt_test">Test</string>
+    <string name="lbl_update">Update</string>
 </resources>

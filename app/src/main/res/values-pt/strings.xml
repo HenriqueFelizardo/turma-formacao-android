@@ -40,4 +40,6 @@
     <string name="lbl_neighborhood">Bairro</string>
     <string name="lbl_city">Cidade</string>
     <string name="lbl_state">Estado</string>
+    <string name="txt_test">Testar</string>
+    <string name="lbl_update">Atualizar</string>
 </resources>

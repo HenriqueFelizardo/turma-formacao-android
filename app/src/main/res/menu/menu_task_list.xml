@@ -4,8 +4,12 @@
 
     <item
         android:id="@+id/menu_add"
-        android:title="@string/lbl_add"
-        app:showAsAction="always"
-        android:icon="@mipmap/ic_action_add">
+        android:title="@string/lbl_add">
     </item>
+
+    <item
+        android:id="@+id/menu_update"
+        android:title="@string/lbl_update">
+    </item>
+
 </menu>

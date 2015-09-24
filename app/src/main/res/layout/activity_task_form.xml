@@ -24,18 +24,18 @@
         <Spinner
             android:id="@+id/spinnerLabel"
             android:layout_width="0dp"
-            android:layout_weight="7"
+            android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_height="wrap_content">
+            android:layout_weight="7">
         </Spinner>
 
         <Button
             android:id="@+id/buttonNewLabel"
             android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:text="@string/lbl_add"
-            android:layout_height="wrap_content"/>
+            android:layout_weight="3"
+            android:text="@string/lbl_add"/>
 
     </LinearLayout>
 

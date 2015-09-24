@@ -33,4 +33,8 @@ public final class TaskBusinessService {
     public static void delete(Task selectedTask) {
         TaskRepository.delete(selectedTask.getId());
     }
+
+    public static void synchronize(Task task) {
+        TaskRepository.save(task);
+    }
 }
